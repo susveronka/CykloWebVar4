@@ -48,6 +48,7 @@ var $etapa;
     }
 
     public function soupisEtap()
+    
     {
 
 

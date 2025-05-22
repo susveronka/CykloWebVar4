@@ -47,13 +47,15 @@ var $etapa;
         return view('welcome_message');
     }
 
-    public function soupisEtap(){
+    public function soupisEtap()
+    {
 
 
     }
 
-    public function etapa(){
-        
+    public function etapa()
+    {
+
     }
 }
 

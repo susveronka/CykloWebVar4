@@ -12,7 +12,9 @@
             foreach($race_year as $row) {
                 $soucetDelky = 0;
                 foreach($stage as $etapy) {
-                    $soucetDelky += $etapy->distance;
+                    if ($etapy->id_race_year == $row->id) {
+                        $soucetDelky += $etapy->distance;
+                    }
                 }
                 $table->addRow(anchor('soupisEtap/'.$row->id, $row->year), $soucetDelky, $row->start_date, $row->end_date );
             }

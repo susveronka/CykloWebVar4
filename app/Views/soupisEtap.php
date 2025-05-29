@@ -15,7 +15,7 @@
             $table = new \CodeIgniter\View\Table();
             
             foreach($stage as $row) {
-                $table->addRow(anchor('etapa/'.$row->id, $row->number));
+                $table->addRow(anchor('stage/'.$row->id, $row->number));
             }
 
             $template = array(

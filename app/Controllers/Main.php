@@ -54,7 +54,7 @@ var $stage;
     public function soupisEtap()
     
     {
-
+echo view('soupisEtap');
 
     }
 

@@ -16,7 +16,11 @@
             $table->setHeading('Ročník', "Délka", "Začátek", "Konec" );
             
             foreach($race_year as $row) {
-                $table->addRow(anchor("soupisEtap/".$row->id ,$row->year), ".", $row->start_date, $row->end_date );
+                $soucetDelky;
+                foreach($stage as $row) {
+                    $soucetDelky += $row->distance;
+                }
+                $table->addRow(anchor("soupisEtap/".$row->id ,$row->year), $soucetDelky, $row->start_date, $row->end_date );
             }
 
             $template = array(

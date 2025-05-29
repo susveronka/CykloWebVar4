@@ -24,6 +24,10 @@ table {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
+h1 {
+    color: #0077cc;
+    margin-bottom: 20px;
+}
 table th, table td {
     padding: 12px 15px;
     border: 1px solid #ddd;

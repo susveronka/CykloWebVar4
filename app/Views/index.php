@@ -14,7 +14,7 @@
                 foreach($stage as $etapy) {
                     $soucetDelky += $etapy->distance;
                 }
-                $table->addRow(anchor("soupisEtap/".$row->id ,$row->year), $soucetDelky, $row->start_date, $row->end_date );
+                $table->addRow(anchor('soupisEtap/'.$row->id, $row->year), $soucetDelky, $row->start_date, $row->end_date );
             }
 
             $template = array(

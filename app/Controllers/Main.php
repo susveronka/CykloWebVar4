@@ -46,7 +46,7 @@ var $stage;
     {
         
         // join race year a race - pomocí race_id
-        $data = $this->race->join('race_year', 'race.id = race_year.id_race', 'inner')->where('race_id', 83)->findAll();
+        $data = $this->race->join('race_year', 'race.id = race_year.id_race', 'inner')->where('race.id', 83)->findAll();
 
         echo view("index", $data);
     }

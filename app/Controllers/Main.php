@@ -42,11 +42,12 @@ var $etapa;
         $this->etapa = new Stage();
     }
 
-    public function index(): string
+    public function index()
     {
-        return view('welcome_message');
+        
         // join race year a race - pomocí race_id
-        $zavod->join('rokZavodu', 'id=zavod-rokZavodu.id_race', 'inner')->where('id', 83)->findAll();
+        $data = $this->zavod->join('rokZavodu', 'id=zavod-rokZavodu.id_race', 'inner')->where('id', 83)->findAll();
+        return view('welcome_message');
     }
 
     public function soupisEtap()

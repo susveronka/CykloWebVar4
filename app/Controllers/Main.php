@@ -47,7 +47,7 @@ var $etapa;
         
         // join race year a race - pomocí race_id
         $data = $this->zavod->join('rokZavodu', 'id=zavod-rokZavodu.id_race', 'inner')->where('id', 83)->findAll();
-        return view('welcome_message');
+        echo view('index', $data);
     }
 
     public function soupisEtap()

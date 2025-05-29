@@ -29,24 +29,24 @@ use App\Models\Stage;
 
 class Main extends BaseController
 {
-var $zavod;
-var $rokZavodu;
-var $vysledek;
-var $etapa;
+var $race;
+var $raceYear;
+var $result;
+var $stage;
 
     public function __construct()
     {
-        $this->zavod = new Race();
-        $this->rokZavodu = new RaceYear();
-        $this->vysledek = new Result();
-        $this->etapa = new Stage();
+        $this->race = new Race();
+        $this->raceYear = new RaceYear();
+        $this->result = new Result();
+        $this->stage = new Stage();
     }
 
     public function index()
     {
         
         // join race year a race - pomocí race_id
-        $data = $this->zavod->join('race_year', 'race.id= race_year.id_race', 'inner')->where('id', 83)->findAll();
+        $data = $this->race->join('race_year', 'race.id = race_year.id_race', 'inner')->where('race_id', 83)->findAll();
 
         echo view("index", $data);
     }

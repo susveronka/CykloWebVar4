@@ -47,10 +47,12 @@ var $stage;
         
         // Fetch race years for the race with id = 83
         $race_year = $this->race_year->where('id_race', 83)->findAll();
+        $stage = $this->stage->findAll();
 
         // Pass data to the view
         $data = [
             'race_year' => $race_year,
+            'stage' => $stage,
         ];
        
         echo view("index", $data);

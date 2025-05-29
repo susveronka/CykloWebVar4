@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href=" <?= base_url('node_modules/bootstrap/dist/css/bootstrap.min.css') ?>">
-    <?= $this->extend('css'); ?>
     <title>Závody</title>
 </head>
 
@@ -16,9 +15,9 @@
             $table->setHeading('Ročník', "Délka", "Začátek", "Konec" );
             
             foreach($race_year as $row) {
-                $soucetDelky;
-                foreach($stage as $row) {
-                    $soucetDelky += $row->distance;
+                $soucetDelky = 0;
+                foreach($stage as $etapy) {
+                    $soucetDelky += $etapy->distance;
                 }
                 $table->addRow(anchor("soupisEtap/".$row->id ,$row->year), $soucetDelky, $row->start_date, $row->end_date );
             }

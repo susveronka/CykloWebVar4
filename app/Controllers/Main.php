@@ -30,14 +30,14 @@ use App\Models\Stage;
 class Main extends BaseController
 {
 var $race;
-var $raceYear;
+var $race_year;
 var $result;
 var $stage;
 
     public function __construct()
     {
         $this->race = new Race();
-        $this->raceYear = new RaceYear();
+        $this->race_year = new RaceYear();
         $this->result = new Result();
         $this->stage = new Stage();
     }
@@ -54,6 +54,7 @@ var $stage;
     public function soupisEtap()
     
     {
+
 echo view('soupisEtap');
 
     }

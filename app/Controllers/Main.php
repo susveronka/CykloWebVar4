@@ -58,12 +58,15 @@ var $stage;
         echo view("index", $data);
     }
 
-    public function soupisEtap()
-    
+    public function soupisEtap($idRocnik)
     {
+        $stage = $this->stage->where('id_race_year', $idRocnik)->findAll();
 
-echo view('soupisEtap');
+        $data = [
+            'stage' => $stage,
+        ];
 
+        echo view('soupisEtap', $data);
     }
 
     public function etapa()

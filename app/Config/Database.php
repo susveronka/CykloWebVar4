@@ -29,7 +29,7 @@ class Database extends Config
         'hostname'     => 'localhost',
         'username'     => 'root',
         'password'     => '',
-        'database'     => '',
+        'database'     => 'stranakova',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => 'c_',
         'pConnect'     => false,

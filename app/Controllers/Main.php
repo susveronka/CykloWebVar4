@@ -45,9 +45,14 @@ var $stage;
     public function index()
     {
         
-        // join race year a race - pomocí race_id
-        $data = $this->race->join('race_year', 'race.id = race_year.id_race', 'inner')->where('race.id', 83)->findAll();
+        // Fetch race years for the race with id = 83
+        $race_year = $this->race_year->where('id_race', 83)->findAll();
 
+        // Pass data to the view
+        $data = [
+            'race_year' => $race_year,
+        ];
+       
         echo view("index", $data);
     }
 

@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href=" <?= base_url('node_modules/bootstrap/dist/css/bootstrap.min.css') ?>">
-    <title>Etapa</title>
-</head>
+<?= $this->extend('layout/layout'); ?>
 
-<body>
+<?= $this->section("obsah"); ?>
     <div class="container">
         <h1> Etapa <?= $stage->number ?> </h1>
         <?php
@@ -79,5 +72,4 @@
             echo $vysledkyEtapy->generate();
         ?>
     </div>
-</body>
-</html>
+    <?= $this->endSection(); ?>

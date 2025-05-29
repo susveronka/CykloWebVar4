@@ -9,7 +9,7 @@ use App\Models\Stage;
 
 #Vypište všechny ročníky závodu La Tropicale Amissa Bongo(id race=83), které máme v databázi. 
 #U každého ročníku bude uvedena celková délka závodu (součet délek všech etap), datum začátku a konce.
- #a následně odkaz na jednotlivé  etapy, kam vložíte start a cíl etapy, datum etapy, délku etapy a výsledky prvních deseti závodníků  etapě.
+#a následně odkaz na jednotlivé  etapy, kam vložíte start a cíl etapy, datum etapy, délku etapy a výsledky prvních deseti závodníků  etapě.
 
 #Vytvoříte rovněž formulář, který umožní editovat výsledky etapy
 # - bude možno měnit jméno a příjmení závodníka, čas závodníka v etapě a pořadí v etapě (to poslední dropdownem)
@@ -29,10 +29,10 @@ use App\Models\Stage;
 
 class Main extends BaseController
 {
-var $race;
-var $race_year;
-var $result;
-var $stage;
+    var $race;
+    var $race_year;
+    var $result;
+    var $stage;
 
     public function __construct()
     {
@@ -44,7 +44,7 @@ var $stage;
 
     public function index()
     {
-        
+
         // Fetch race years for the race with id = 83
         $race_year = $this->race_year->where('id_race', 83)->findAll();
         $stage = $this->stage->findAll();
@@ -54,23 +54,18 @@ var $stage;
             'race_year' => $race_year,
             'stage' => $stage,
         ];
-       
+
         echo view("index", $data);
     }
 
     public function soupisEtap()
-    
+
+
+
     {
 
-echo view('soupisEtap');
-
+    //    echo view('soupisEtap', $data);
     }
 
-    public function etapa()
-    {
-
-    }
+    public function etapa() {}
 }
-
-
-?>

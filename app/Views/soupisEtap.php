@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href=" <?= base_url('node_modules/bootstrap/dist/css/bootstrap.min.css') ?>">
-    <title>Etapy</title>
-</head>
+<?= $this->extend('layout/layout'); ?>
 
-<body>
+<?= $this->section("obsah"); ?>
     <div class="container">
         <h1> Soupis etap roku <?= $race_year->year ?> </h1>
         <?php
@@ -43,5 +36,4 @@
             echo $table->generate();
         ?>
     </div>
-</body>
-</html>
+    <?= $this->endSection(); ?>

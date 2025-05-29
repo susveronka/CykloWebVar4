@@ -58,10 +58,13 @@ class Main extends BaseController
         echo view("index", $data);
     }
 
-    public function soupisEtap()
+    public function soupisEtap($idRocnik)
     
     {
         $stage = $this->stage->where('id_race_year', $idRocnik)->findAll();
+        $data = [
+            'stage' => $stage,
+        ];
 
 echo view('soupisEtap');
 

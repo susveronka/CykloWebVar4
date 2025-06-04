@@ -1,1 +1,1 @@
-<?= $this->extend('css'); ?>
+<?= $this->extend('layout/layout'); ?>

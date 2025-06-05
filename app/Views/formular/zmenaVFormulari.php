@@ -5,7 +5,7 @@ $poradiMoznosti = range(1, 10); // Příklad pro 10 závodníků
 ?>
 
     <h1>Úprava výsledků etapy</h1>
-    <form action="zpracovani.php" method="post">
+    <form action="zmena" method="post">
 
         <label for="rank">Pořadí:</label>
         <select id="rank" name="rank" required>

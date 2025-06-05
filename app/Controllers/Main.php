@@ -74,7 +74,7 @@ class Main extends BaseController
 
     public function etapa($idEtapa) {
         $stage = $this->stage->find($idEtapa);
-        $result = $this->result->where('id_stage', $idEtapa)->orderBy('rank', 'ASC')->findAll(10);
+        $result = $this->result->where('id_stage', $idEtapa)->where('type_result', 1)->orderBy('rank', 'ASC')->findAll(10);
 
         if (!$stage) {
             return redirect()->to('/soupisEtap')->with('error', 'Stage not found');

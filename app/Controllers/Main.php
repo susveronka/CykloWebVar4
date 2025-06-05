@@ -60,7 +60,7 @@ class Main extends BaseController
     
     {
         $stage = $this->stage->where('id_race_year', $idRocnik)->findAll();
-        $race_year = $this->race_year->where('id', $idRocnik)->findAll();
+        $race_year = $this->race_year->find($idRocnik);
 
         $data = [
             'stage' => $stage,

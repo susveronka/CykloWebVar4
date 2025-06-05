@@ -1,10 +1,10 @@
 
     <title>Závody</title>
     <div class="container">
-        <h1> La Tropicale Amissa Bongo </h1>
         <?= $this->extend('layout/layout'); ?>
 
 <?= $this->section("obsah"); ?>
+        <h2> La Tropicale Amissa Bongo </h2>
         <?php
             $table = new \CodeIgniter\View\Table();
             $table->setHeading('Ročník', "Délka", "Začátek", "Konec" );

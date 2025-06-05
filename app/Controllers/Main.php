@@ -75,12 +75,12 @@ class Main extends BaseController
     public function etapa() {
         // zkouska
         $idEtapa = $this->request->getVar('id');
-        $etapa = $this->stage->find($idEtapa);
-        $vysledky = $this->result->where('id_stage', $idEtapa)->orderBy('poradi', 'ASC')->findAll(10);
+        $stage = $this->stage->find($idEtapa);
+        $result = $this->result->where('id_stage', $idEtapa)->orderBy('poradi', 'ASC')->findAll(10);
 
         $data = [
-            'etapa' => $etapa,
-            'vysledky' => $vysledky,
+            'stage' => $stage,
+            'result' => $result,
         ];
 
         echo view('etapa', $data);

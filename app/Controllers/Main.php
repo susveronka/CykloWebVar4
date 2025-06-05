@@ -45,11 +45,9 @@ class Main extends BaseController
     public function index()
     {
 
-        // Fetch race years for the race with id = 83
         $race_year = $this->race_year->where('id_race', 83)->findAll();
         $stage = $this->stage->findAll();
 
-        // Pass data to the view
         $data = [
             'race_year' => $race_year,
             'stage' => $stage,
@@ -62,14 +60,20 @@ class Main extends BaseController
     
     {
         $stage = $this->stage->where('id_race_year', $idRocnik)->findAll();
+        $race_year = $this->race_year->where('id', $idRocnik)->findAll();
+
         $data = [
             'stage' => $stage,
+            'race_year' => $race_year,
         ];
         
 
-echo view('soupisEtap');
+        echo view('soupisEtap', $data);
 
     }
 
-    public function etapa() {}
+    public function etapa() {
+        
+
+    }
 }

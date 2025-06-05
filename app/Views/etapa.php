@@ -44,7 +44,8 @@
             
             foreach ($result as $row) {
                 if ($row->rank >= 1 && $row->rank <= 10 && $row->type_result == 1) {
-                    $vysledkyEtapy->addRow($row->rank, $row->name_link, $row->time);
+                    $jmeno = str_replace('-', ' ', explode('/', $row->name_link)[1]);
+                    $vysledkyEtapy->addRow($row->rank, $jmeno, $row->time);
                 }
             }
 

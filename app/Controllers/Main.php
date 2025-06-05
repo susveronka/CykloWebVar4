@@ -25,8 +25,8 @@ use App\Models\Stage;
 
 #4 - formulář na editování výsledku etapy  -změny
 # -  jména
-#-  příjmení
-#-  čas a pořadí v etapě
+#-  čas 
+# pořadí v etapě
 
 class Main extends BaseController
 {

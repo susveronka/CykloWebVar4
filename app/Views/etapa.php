@@ -42,8 +42,10 @@
             $vysledkyEtapy = new \CodeIgniter\View\Table();
             $vysledkyEtapy->setHeading("Umístění", 'Jméno', "Čas");
             
-            foreach($result as $row) {
-                $table->addRow($row->rank, $row->name_link, $row->time);
+            foreach ($result as $row) {
+                if ($row->rank >= 1 && $row->rank <= 10 && $row->type_result == 1) {
+                    $vysledkyEtapy->addRow($row->rank, $row->name_link, $row->time);
+                }
             }
 
             $template2 = array(

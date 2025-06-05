@@ -16,8 +16,12 @@ $poradiMoznosti = range(1, 10); // Příklad pro 10 závodníků
             <?php endforeach; ?>
         </select><br>
 
-        <label for="name_link">Jméno:</label>
-        <input type="text" id="name_link" name="name_link" value="<?php echo htmlspecialchars($rider['name_link']); ?>" required><br>
+        <label for="first_name">Jméno:</label>
+        <input type="text" id="first_name" name="first_name" value="<?php echo htmlspecialchars($rider['first_name']); ?>" required><br>
+
+        <label for="last_name">Příjmení:</label>
+        <input type="text" id="last_name" name="last_name" value="<?php echo htmlspecialchars($rider['last_name']); ?>" required><br>
+
 
         <label for="cas">Čas:</label>
         <input type="time" id="cas" name="cas" value="<?php echo htmlspecialchars($rider['time']); ?>" required><br>

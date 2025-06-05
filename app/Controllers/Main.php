@@ -72,8 +72,7 @@ class Main extends BaseController
 
     }
 
-    public function etapa() {
-        $idEtapa = $this->request->getVar('id');
+    public function etapa($idEtapa) {
         $stage = $this->stage->find($idEtapa);
         $result = $this->result->where('id_stage', $idEtapa)->orderBy('rank', 'ASC')->findAll(10);
 
@@ -82,7 +81,7 @@ class Main extends BaseController
         }
 
         $data = [
-            'stage' => $stage,
+            'stage' => [$stage],
             'result' => $result,
         ];
 

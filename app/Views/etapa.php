@@ -2,7 +2,7 @@
 
 <?= $this->section("obsah"); ?>
     <div class="container">
-        <h1> Etapa <?= $stage->number ?> </h1>
+        <h1> Etapa <?= $stage[0]->number ?> </h1>
         <?php
             $table = new \CodeIgniter\View\Table();
             $table->setHeading('Start', "Cíl", "Datum", "Délka");

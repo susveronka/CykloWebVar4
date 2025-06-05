@@ -65,6 +65,7 @@ class Main extends BaseController
         $data = [
             'stage' => $stage,
         ];
+        
 
 echo view('soupisEtap');
 

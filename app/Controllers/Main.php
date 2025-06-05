@@ -73,10 +73,13 @@ class Main extends BaseController
     }
 
     public function etapa() {
-        // zkouska
         $idEtapa = $this->request->getVar('id');
         $stage = $this->stage->find($idEtapa);
-        $result = $this->result->where('id_stage', $idEtapa)->orderBy('poradi', 'ASC')->findAll(10);
+        $result = $this->result->where('id_stage', $idEtapa)->orderBy('rank', 'ASC')->findAll(10);
+
+        if (!$stage) {
+            return redirect()->to('/soupisEtap')->with('error', 'Stage not found');
+        }
 
         $data = [
             'stage' => $stage,
@@ -84,7 +87,5 @@ class Main extends BaseController
         ];
 
         echo view('etapa', $data);
-        
-
     }
 }

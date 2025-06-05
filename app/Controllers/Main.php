@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Race;
 use App\Models\RaceYear;
 use App\Models\Result;
+use App\Models\Rider;
 use App\Models\Stage;
 
 #Vypište všechny ročníky závodu La Tropicale Amissa Bongo(id race=83), které máme v databázi. 
@@ -33,6 +34,7 @@ class Main extends BaseController
     var $race_year;
     var $result;
     var $stage;
+    var $rider;
 
     public function __construct()
     {
@@ -40,6 +42,7 @@ class Main extends BaseController
         $this->race_year = new RaceYear();
         $this->result = new Result();
         $this->stage = new Stage();
+        $this->rider = new Rider();
     }
 
     public function index()

@@ -6,6 +6,7 @@ use App\Models\Race;
 use App\Models\RaceYear;
 use App\Models\Stage;
 use App\Models\Result;
+use App\Models\Rider;
 
 class Formular extends BaseController
 {
@@ -13,6 +14,7 @@ class Formular extends BaseController
     var $result;
     var $stage;
     var $race_year;
+    var $rider;
 
     public function __construct()
     { 
@@ -20,6 +22,7 @@ class Formular extends BaseController
         $this->race_year = new RaceYear();
         $this->result = new Result(); //
         $this->stage = new Stage();
+        $this->rider = new Rider();
     }
 
     public function zmenaVFormulari($idEtapa)

@@ -1,20 +1,15 @@
 <?php
 
-$poradiMoznosti = range(1, 10); // Příklad pro 10 závodníků
+
 
 ?>
 
     <h1>Úprava výsledků etapy</h1>
     <form action="zmena" method="post">
 
-        <label for="rank">Pořadí:</label>
-        <select id="rank" name="rank" required>
-            <?php foreach ($poradiMoznosti as $zmenaPoradi): ?>
-                <option value="<?php echo $zmenaPoradi; ?>" <?php echo $zmenaPoradi == $rider['rank'] ? 'selected' : ''; ?>>
-                    <?php echo $zmenaPoradi; ?>
-                </option>
-            <?php endforeach; ?>
-        </select><br>
+    <label for="rank">Pořadí:</label>
+    <input type="text" id="rank" name="rank" value="<?php echo htmlspecialchars($rider['rank']); ?>" required><br>
+
 
         <label for="first_name">Jméno:</label>
         <input type="text" id="first_name" name="first_name" value="<?php echo htmlspecialchars($rider['first_name']); ?>" required><br>

@@ -69,7 +69,6 @@ class Main extends BaseController
             'stage' => $stage,
             'race_year' => $race_year,
         ];
-        
 
         echo view('soupisEtap', $data);
 

@@ -27,7 +27,6 @@ class Formular extends BaseController
 
     public function zmenaVFormulari($idResult)
     {
-        // Load the specific rider's data based on the result ID
         $rider = $this->result
             ->select('result.*, rider.first_name, rider.last_name')
             ->join('rider', 'rider.id = result.id_rider')
@@ -45,18 +44,16 @@ class Formular extends BaseController
 
     public function zmena()
     {
-        // Retrieve form data
         $rank = $this->request->getPost('rank');
         $firstName = $this->request->getPost('first_name');
         $lastName = $this->request->getPost('last_name');
         $time = $this->request->getPost('cas');
-        $idResult = $this->request->getPost('idResult'); // Result ID passed as a hidden field
+        $idResult = $this->request->getPost('idResult'); 
 
         if (!$rank || !$firstName || !$lastName || !$time || !$idResult) {
             return redirect()->back()->with('error', 'Všechna pole musí být vyplněna.');
         }
 
-        // Update the rider's data
         $resultData = [
             'rank' => $rank,
             'time' => $time,
@@ -71,7 +68,6 @@ class Formular extends BaseController
 
         $this->rider->update($this->result->find($idResult)->id_rider, $riderData);
 
-        // Redirect back with a success message
         return redirect()->to(base_url('formular/zmenaVFormulari/' . $idResult))->with('success', 'Výsledky byly úspěšně aktualizovány.');
     }
 }

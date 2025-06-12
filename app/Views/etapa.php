@@ -8,7 +8,7 @@
             $table->setHeading('Start', "Cíl", "Datum", "Délka");
             
             foreach($stage as $row) {
-                $table->addRow($row->departure, $row->arrival, $row->date, $row->distance);
+                $table->addRow($row->departure, $row->arrival, $row->date, $row->distance." m");
             }
 
             $template = array(

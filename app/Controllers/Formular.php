@@ -36,6 +36,7 @@ class Formular extends BaseController
           ->join('stage', 'rider.id = stage.id')
           ->findAll();
       echo view('formular/zmenaVFormulari', $data);
+      
       #$data['result'] = $this->result->where('id_stage', $idEtapa)->orderBy('rank', 'ASC')->findAll(10);
       #echo view('formular/zmenaVFormulari', $data);
     }

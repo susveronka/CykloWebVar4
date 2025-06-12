@@ -27,7 +27,7 @@ class Formular extends BaseController
 
     public function zmenaVFormulari($idEtapa)
     {
-      $data['riders'] = $this->rider->findAll();
+      $data['rider'] = $this->rider->findAll();
       $data['stage'] = $this->stage->find($idEtapa);
 
       $data['poradiMoznosti'] = range(1, 10); // Příklad pro 10 závodníků

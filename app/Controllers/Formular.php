@@ -20,25 +20,58 @@ class Formular extends BaseController
     { 
         $this->race = new Race();
         $this->race_year = new RaceYear();
-        $this->result = new Result(); //
+        $this->result = new Result();
         $this->stage = new Stage();
         $this->rider = new Rider();
     }
 
-    public function zmenaVFormulari($idEtapa)
+    public function zmenaVFormulari($idResult)
     {
-     # $data['rider'] = $this->rider->findAll();
-     # $data['stage'] = $this->stage->find($idEtapa);
+        // Load the specific rider's data based on the result ID
+        $rider = $this->result
+            ->select('result.*, rider.first_name, rider.last_name')
+            ->join('rider', 'rider.id = result.id_rider')
+            ->where('result.id', $idResult)
+            ->first();
 
-      $data['poradiMoznosti'] = range(1, 10); // Příklad pro 10 závodníků
+        if (!$rider) {
+            return redirect()->to('/')->with('error', 'Rider not found.');
+        }
 
-      $data['rider'] = $this->rider->select('rider.*, result.*')
-          ->join('result', 'rider.id = result.id_rider')
-          ->where('result.id_stage', $idEtapa)
-          ->findAll(10);
-      echo view('formular/zmenaVFormulari', $data);
-      
-      #$data['result'] = $this->result->where('id_stage', $idEtapa)->orderBy('rank', 'ASC')->findAll(10);
-      #echo view('formular/zmenaVFormulari', $data);
+        $data['rider'] = $rider;
+
+        echo view('formular/zmenaVFormulari', $data);
+    }
+
+    public function zmena()
+    {
+        // Retrieve form data
+        $rank = $this->request->getPost('rank');
+        $firstName = $this->request->getPost('first_name');
+        $lastName = $this->request->getPost('last_name');
+        $time = $this->request->getPost('cas');
+        $idResult = $this->request->getPost('idResult'); // Result ID passed as a hidden field
+
+        if (!$rank || !$firstName || !$lastName || !$time || !$idResult) {
+            return redirect()->back()->with('error', 'Všechna pole musí být vyplněna.');
+        }
+
+        // Update the rider's data
+        $resultData = [
+            'rank' => $rank,
+            'time' => $time,
+        ];
+
+        $this->result->update($idResult, $resultData);
+
+        $riderData = [
+            'first_name' => $firstName,
+            'last_name' => $lastName,
+        ];
+
+        $this->rider->update($this->result->find($idResult)->id_rider, $riderData);
+
+        // Redirect back with a success message
+        return redirect()->to(base_url('formular/zmenaVFormulari/' . $idResult))->with('success', 'Výsledky byly úspěšně aktualizovány.');
     }
 }

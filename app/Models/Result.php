@@ -12,7 +12,7 @@ class Result extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['rank', 'time', 'id_rider', 'type_result', 'id_stage'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

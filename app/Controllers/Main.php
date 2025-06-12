@@ -75,19 +75,25 @@ class Main extends BaseController
 
     }
 
-    public function etapa($idEtapa) {
-        $stage = $this->stage->find($idEtapa);
-        $result = $this->result->where('id_stage', $idEtapa)->where('type_result', 1)->orderBy('rank', 'ASC')->findAll(10);
+public function etapa($idEtapa) {
+    $stage = $this->stage->find($idEtapa);
+    $result = $this->result
+        ->select('result.*, rider.first_name, rider.last_name')
+        ->join('rider', 'rider.id = result.id_rider')
+        ->where('result.id_stage', $idEtapa)
+        ->where('result.type_result', 1)
+        ->orderBy('result.rank', 'ASC')
+        ->findAll(10);
 
-        if (!$stage) {
-            return redirect()->to('/soupisEtap')->with('error', 'Stage not found');
-        }
-
-        $data = [
-            'stage' => [$stage],
-            'result' => $result,
-        ];
-
-        echo view('etapa', $data);
+    if (!$stage) {
+        return redirect()->to('/soupisEtap')->with('error', 'Stage not found');
     }
+
+    $data = [
+        'stage' => [$stage],
+        'result' => $result,
+    ];
+
+    echo view('etapa', $data);
+}
 }

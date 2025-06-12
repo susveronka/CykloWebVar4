@@ -51,7 +51,8 @@
                 );
 
                 if ($row->rank >= 1 && $row->rank <= 10 && $row->type_result == 1) {
-                    $jmeno = str_replace('-', ' ', explode('/', $row->name_link)[1]);
+                    //$jmeno = str_replace('-', ' ', explode('/', $row->name_link)[1]);
+                    $jmeno = $row->first_name . ' ' . $row->last_name;
                     $vysledkyEtapy->addRow($row->rank.".", $jmeno, $row->time, $uprava);
                 }
             }

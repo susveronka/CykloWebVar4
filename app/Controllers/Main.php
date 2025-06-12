@@ -48,7 +48,7 @@ class Main extends BaseController
     public function index()
     {
 
-        $race_year = $this->race_year->where('id_race', 83)->findAll();
+        $race_year = $this->race_year->where('id_race', 83)->orderBy('year','asc')->findAll();
         $stage = $this->stage->findAll();
 
         $data = [

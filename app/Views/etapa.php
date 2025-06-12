@@ -8,7 +8,7 @@
             $table->setHeading('Start', "Cíl", "Datum", "Délka");
             
             foreach($stage as $row) {
-                $table->addRow($row->departure, $row->arrival, $row->date, $row->distance);
+                $table->addRow($row->departure, $row->arrival, $row->date, $row->distance." m");
             }
 
             $template = array(
@@ -40,12 +40,19 @@
             <h1> Výsledky prvních 10 závodníků </h1>
             <?php
             $vysledkyEtapy = new \CodeIgniter\View\Table();
-            $vysledkyEtapy->setHeading("Umístění", 'Jméno', "Čas");
+            $vysledkyEtapy->setHeading("Umístění", 'Jméno', "Čas", "");
             
             foreach ($result as $row) {
+
+                $uprava = anchor(
+                    'formular/zmenaVFormulari/'.$row->id,
+                    'Upravit',
+                    ['class' => 'btn btn-warning btn-sm']
+                );
+
                 if ($row->rank >= 1 && $row->rank <= 10 && $row->type_result == 1) {
                     $jmeno = str_replace('-', ' ', explode('/', $row->name_link)[1]);
-                    $vysledkyEtapy->addRow($row->rank, $jmeno, $row->time);
+                    $vysledkyEtapy->addRow($row->rank.".", $jmeno, $row->time, $uprava);
                 }
             }
 

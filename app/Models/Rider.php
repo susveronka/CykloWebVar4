@@ -12,8 +12,7 @@ class Rider extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
-
+    protected $allowedFields    = ['first_name', 'last_name'];
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 

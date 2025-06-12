@@ -33,7 +33,7 @@ class Formular extends BaseController
       $data['poradiMoznosti'] = range(1, 10); // Příklad pro 10 závodníků
 
       $data['rider'] = $this->rider->select('rider.*, stage.*')
-          ->join('stage', 'rider.id = stage.id')
+          ->join('stage', 'rider.id = stage.id_rider')
           ->findAll();
       echo view('formular/zmenaVFormulari', $data);
       

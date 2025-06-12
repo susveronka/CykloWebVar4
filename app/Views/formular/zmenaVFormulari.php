@@ -22,7 +22,6 @@
     <label for="last_name">Příjmení:</label>
     <input type="text" id="last_name" name="last_name" value="<?php echo htmlspecialchars($rider['last_name'] ?? ''); ?>" required><br>
 
-
     <label for="cas">Čas:</label>
     <input type="time" id="cas" name="cas" value="<?php echo htmlspecialchars($rider['time'] ?? ''); ?>" required><br>
 

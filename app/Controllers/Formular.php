@@ -28,6 +28,6 @@ class Formular extends BaseController
     public function zmenaVFormulari($idEtapa)
     {
       #$data['result'] = $this->result->where('id_stage', $idEtapa)->orderBy('rank', 'ASC')->findAll(10);
-      #  echo view('formular/zmenaVFormulari', $data);
+      #echo view('formular/zmenaVFormulari', $data);
     }
 }

@@ -34,7 +34,8 @@ class Formular extends BaseController
 
       $data['rider'] = $this->rider->select('rider.*, result.*')
           ->join('result', 'rider.id = result.id_rider')
-          ->findAll();
+          ->where('result.id_stage', $idEtapa)
+          ->findAll(10);
       echo view('formular/zmenaVFormulari', $data);
       
       #$data['result'] = $this->result->where('id_stage', $idEtapa)->orderBy('rank', 'ASC')->findAll(10);

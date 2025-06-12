@@ -68,6 +68,8 @@ class Formular extends BaseController
 
         $this->rider->update($this->result->find($idResult)->id_rider, $riderData);
 
-        return redirect()->to(base_url('formular/zmenaVFormulari/' . $idResult))->with('success', 'Výsledky byly úspěšně aktualizovány.');
+        $idStage = $this->result->find($idResult)->id_stage;
+
+        return redirect()->to(base_url('etapa/' . $idStage))->with('success', 'Výsledky byly úspěšně aktualizovány.');
     }
 }
